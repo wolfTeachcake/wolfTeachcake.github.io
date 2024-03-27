@@ -19,7 +19,7 @@ const CompleteTime = () => {
 		) || [];
 
 	if (completedDays.length === 0) {
-		return <FlexContainer>請輸入足夠的資訊</FlexContainer>;
+		return <FlexContainer>請輸入足夠的時間</FlexContainer>;
 	}
 
 	return (
@@ -32,9 +32,7 @@ const CompleteTime = () => {
 						.map(([name, _], timeIndex) => {
 							const trueTime = trueTimes.find((tt) => tt.name === name);
 							return trueTime ? (
-								<div key={timeIndex}>
-									<span>{trueTime.time}</span>
-								</div>
+								<span key={timeIndex}>{`${trueTime.time} `}</span>
 							) : null;
 						})}
 				</FlexContainer>
