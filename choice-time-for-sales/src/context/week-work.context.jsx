@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { FieldsContext } from './feilds.context'; // 确保路径和文件名正确
 import { TimerContext } from './timer.context'; // 确保路径和文件名正确
+import { DataContext } from './fetchData.context'; // 确保路径和文件名正确
 import dayjs from 'dayjs';
-import DATA from '../data/updated_persons.json';
 
 export const WeekWorkContext = createContext({
 	weekWork: null,
@@ -11,8 +10,8 @@ export const WeekWorkContext = createContext({
 });
 
 export const WeekWorkProvider = ({ children }) => {
-	const { currentFields } = useContext(FieldsContext);
 	const { timer } = useContext(TimerContext);
+	const { data } = useContext(DataContext);
 	const [weekWork, setWeekWork] = useState(null);
 	const [lastTime, setLastTime] = useState(null);
 
@@ -26,9 +25,7 @@ export const WeekWorkProvider = ({ children }) => {
 			const date = timer.add(i, 'day');
 			const dateString = date.format('YYYY-M-D');
 
-			const fieldPersons = DATA.filter((person) =>
-				person.field.some((fieldId) => currentFields.some((field) => field.id === fieldId))
-			);
+			const fieldPersons = data;
 
 			let dailyWorkTimes = fieldPersons.reduce((acc, person) => {
 				Object.entries(person.work_schedules).forEach(([scheduleYearMonth, schedules]) => {
@@ -55,7 +52,7 @@ export const WeekWorkProvider = ({ children }) => {
 		});
 
 		setWeekWork(weekDates);
-	}, [timer, currentFields]);
+	}, [timer, data]);
 
 	useEffect(() => {
 		if (!weekWork) {

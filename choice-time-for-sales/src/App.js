@@ -1,4 +1,3 @@
-import CheckFieldContainer from './component/check-container/check-container.component';
 import TimerContainer from './component/timer-container/timer-container.component';
 import ScheduleContainer from './component/schedule-container/schedule-container.component';
 import CompleteTime from './component/complete-time/complete-time.component';
@@ -6,8 +5,8 @@ import CompleteTime from './component/complete-time/complete-time.component';
 function App() {
 	return (
 		<div className="App">
-			<h1>預約領航時間確認</h1>
-			<CheckFieldContainer />
+			<h1>首通確認</h1>
+			<h3>請至少選出三個可以時段</h3>
 			<TimerContainer />
 			<ScheduleContainer />
 			<CompleteTime />

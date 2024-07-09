@@ -33,8 +33,9 @@ const Schedule = () => {
 		const weekNum = ['日', '一', '二', '三', '四', '五', '六'];
 		const trueTimes = [
 			{ name: 'A', time: '13:00-15:00' },
-			{ name: 'B', time: '17:00-19:00' },
-			{ name: 'C', time: '19:00-21:00' },
+			{ name: 'B', time: '15:00-17:00' },
+			{ name: 'C', time: '17:00-19:00' },
+			{ name: 'D', time: '19:00-21:00' },
 		];
 		return weekWork.map((day, key) => (
 			<div key={key}>

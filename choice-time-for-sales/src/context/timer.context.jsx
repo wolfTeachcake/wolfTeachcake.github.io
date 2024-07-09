@@ -1,5 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
-import dayjs from 'dayjs';
+import { createContext, useState } from 'react';
 
 export const TimerContext = createContext({
 	timer: null,
